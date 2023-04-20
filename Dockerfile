@@ -12,4 +12,4 @@ RUN pip install gunicorn
 
 COPY . .
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:7000"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

@@ -12,4 +12,4 @@ RUN pip install gunicorn
 
 COPY . .
 
-CMD ["gunicorn", "--bind", "0.0.0.0:$PORT", "crudfornecedor.wsgi:application"]
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "crudfornecedor.wsgi:application"]

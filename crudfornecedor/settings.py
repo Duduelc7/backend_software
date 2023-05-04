@@ -120,9 +120,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'sg_db',
-        'USER': 'postgres',
-        'PASSWORD':'postgres',
-        'HOST': 'localhost'
+        'USER': 'super',
+        'PASSWORD': 'postsafe2023',
+        'HOST': 'Safegold-3174.postgres.pythonanywhere-services.com',
+        'PORT': '13174',
     }
 }
 

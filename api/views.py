@@ -20,6 +20,7 @@ from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth.models import User
 from datetime import datetime, timedelta, date
 from rest_framework.authentication import TokenAuthentication
+from rest_framework.decorators import action
 
 '''
     @eduardolcordeiro
@@ -131,7 +132,17 @@ class MatrizAnaliticaFornecedorViewSet(viewsets.ModelViewSet):
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['cod_matriz_analitica_fornecedor', 'cod_empresa', 'vinculo', 'cod_conta_analitica', 'cod_fornecedor']
     
+    @action(detail=True, methods=['patch'])
+    def update_fields(self, request, pk=None):
+        instance = self.get_object()
 
+        instance.cod_conta_analitica = None
+        instance.vinculo = 0
+
+        instance.save()
+
+        serializer = self.get_serializer(instance)
+        return Response(serializer.data)
 
 '''
     @eduardolcordeiro
@@ -308,24 +319,24 @@ class AgTipoViewSet(viewsets.ModelViewSet):
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['id_tipo','tipo']
 
-@authentication_classes([TokenAuthentication])
-@permission_classes([IsAuthenticated])   
+# @authentication_classes([TokenAuthentication])
+# @permission_classes([IsAuthenticated])   
 class AgFactAgendaViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
 
     serializer_class = serializers.AgFactAgendaSerializer
     queryset = models.AgFactAgenda.objects.all()
 
-    def list(self, request):
-        year_start, year_end = self.get_year_range(date.today().year)
-        agendas_ano = models.AgFactAgenda.objects.filter(data__range=[year_start, year_end])
-        serializer = serializers.AgFactAgendaSerializer(agendas_ano, many=True)
-        return Response(serializer.data)
+    # def list(self, request):
+    #     year_start, year_end = self.get_year_range(date.today().year)
+    #     agendas_ano = models.AgFactAgenda.objects.filter(data__range=[year_start, year_end])
+    #     serializer = serializers.AgFactAgendaSerializer(agendas_ano, many=True)
+    #     return Response(serializer.data)
 
-    def get_year_range(self, year):
-        start = date(year, 1, 1)
-        end = date(year, 12, 31)
-        return start, end
+    # def get_year_range(self, year):
+    #     start = date(year, 1, 1)
+    #     end = date(year, 12, 31)
+    #     return start, end
 
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated])
@@ -345,8 +356,8 @@ class CurrentWeekAgendaViewSet(viewsets.ModelViewSet):
         start = date_obj - timedelta(days=date_obj.weekday())
         end = start + timedelta(days=6)
         return start, end
-@authentication_classes([TokenAuthentication])
-@permission_classes([IsAuthenticated])
+# @authentication_classes([TokenAuthentication])
+# @permission_classes([IsAuthenticated])
 class LastWeekAgendaViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
 

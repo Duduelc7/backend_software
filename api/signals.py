@@ -2,7 +2,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.core.mail import send_mail
 from .models import LandingPage
-from landingpage import settings
+from crudfornecedor import settings
 from django.core.mail import EmailMessage, EmailMultiAlternatives
 from django.core.mail import send_mail
 from django.template.loader import render_to_string

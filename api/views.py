@@ -271,9 +271,9 @@ def api_userlogin(request):
     }
     return JsonResponse(serialized_user)
 
-################################################################################## MODULO AGENDA ###########################################################################################################################
-@authentication_classes([TokenAuthentication])
-@permission_classes([IsAuthenticated])
+# ################################################################################## MODULO AGENDA ###########################################################################################################################
+# @authentication_classes([TokenAuthentication])
+# @permission_classes([IsAuthenticated])
 class SgUnidadeNegocioViewSet(viewsets.ModelViewSet):
     queryset = models.SgUnidadeNegocio.objects.all()
     serializer_class = serializers.SgUnidadedeNegocioSerializers

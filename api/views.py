@@ -101,10 +101,10 @@ class FinSubgrupoContasViewSet(viewsets.ModelViewSet):
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['cod_subgrupo_contas', 'desc_subgrupo_contas', 'cod_grupo_contas']
 
-@authentication_classes([TokenAuthentication])
-@permission_classes([IsAuthenticated])
+# @authentication_classes([TokenAuthentication])
+# @permission_classes([IsAuthenticated])
 class FinContaAnaliticaViewSet(viewsets.ModelViewSet):
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
 
     queryset = models.FinContaAnalitica.objects.all()
     serializer_class = serializers.FinContaAnaliticaSerializer

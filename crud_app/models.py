@@ -493,3 +493,29 @@ class AgFactAgenda(models.Model):
         db_table = 'ag_fact_agenda'
     def __str__(self):
         return '{}/{} - {} . {} '.format(self.data, self.dia_semana, self.projetos, self.sg_funcao_gestor)
+    
+
+
+
+
+
+
+    ################################################################    LANDING PAGE
+
+class LandingPage(models.Model):
+    nome = models.CharField(max_length=255, blank=True, null=True)
+    email = models.CharField(max_length=255, blank=True, null=True)
+    telefone = models.CharField(max_length=255, blank=True, null=True)
+    cargo = models.CharField(max_length=255, blank=True, null=True)
+    segmento_empresa = models.CharField(max_length=255, blank=True, null=True)
+    faturamento = models.CharField(max_length=255, blank=True, null=True)
+    data_post = models.DateTimeField(auto_now_add=True)
+    
+
+
+    class Meta:
+        managed = False
+        db_table = 'landing_page'
+
+    def __str__(self):
+        return '{}  / {}'.format(self.nome, self.email)

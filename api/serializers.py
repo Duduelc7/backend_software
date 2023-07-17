@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from crud_app.models import  *
 from django.contrib.auth import authenticate
+from rest_framework import viewsets, generics
 
 '''
 
@@ -287,3 +288,11 @@ class AgFactAgendaSerializer(serializers.ModelSerializer):
     class Meta:
         model = AgFactAgenda
         fields = 'cod_agenda','data','dia_semana','tipo','tipo_nome','projetos','projeto_nome','atendimento','horas','funcao_gestor'
+
+
+class LandingPageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = LandingPage
+        fields = '__all__'
+    
+

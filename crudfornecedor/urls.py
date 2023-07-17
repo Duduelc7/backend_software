@@ -46,6 +46,7 @@ router.register('rh_classificacao_comportamental', RhClassificacaoCompViewSet, b
 # router.register('rh_mapeamento_cargo_competencias',RhMapCargoCompViewSet , basename='rh_mapeamento_cargo_competencias')
 # router.register('rh_user_avaliacao',RhUserAvaliacaoViewSet , basename='rh_user_avaliacao')
 # router.register('rh_apro_gestor',AptoGestorViewSet , basename='rh_apro_gestor')
+router.register('landing_page', LandingPageViewSet, basename='landing_page')
 
 
 # AGENDA

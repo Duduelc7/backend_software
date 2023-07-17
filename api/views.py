@@ -393,3 +393,11 @@ class NextWeekAgendaViewSet(viewsets.ModelViewSet):
         start = date_obj - timedelta(days=date_obj.weekday())
         end = start + timedelta(days=6)
         return start, end
+    
+from django_filters.rest_framework import DjangoFilterBackend
+
+class LandingPageViewSet(viewsets.ModelViewSet):
+    queryset = models.LandingPage.objects.all()
+    serializer_class = serializers.LandingPageSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['id','nome','email','telefone','faturamento','cargo','segmento_empresa']

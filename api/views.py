@@ -400,4 +400,4 @@ class LandingPageViewSet(viewsets.ModelViewSet):
     queryset = models.LandingPage.objects.all()
     serializer_class = serializers.LandingPageSerializer
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['id','nome','email','telefone','faturamento','cargo','segmento_empresa']
+    filterset_fields = ['id','nome','email','telefone','faturamento','cargo','segmento_empresa','origem']

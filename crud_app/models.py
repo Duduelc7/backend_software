@@ -511,7 +511,7 @@ class LandingPage(models.Model):
     segmento_empresa = models.CharField(max_length=255, blank=True, null=True)
     faturamento = models.CharField(max_length=255, blank=True, null=True)
     data_post = models.DateTimeField(auto_now_add=True)
-    origem = models.CharField(max_length=255, default='LP-CONTROLADORIA')
+    origem = models.CharField(max_length=255, blank=True, null=True)
 
     
     class Meta:

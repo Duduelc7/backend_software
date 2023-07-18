@@ -26,6 +26,7 @@ admin.site.register(MatrizAnaliticaFornecedor)
 admin.site.register(Fornecedor)
 
 
+admin.site.register(LandingPage)
 
 # RH AVALIAÇÃO DE DESEMPENHO
 

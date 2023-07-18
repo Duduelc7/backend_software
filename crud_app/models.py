@@ -511,14 +511,9 @@ class LandingPage(models.Model):
     segmento_empresa = models.CharField(max_length=255, blank=True, null=True)
     faturamento = models.CharField(max_length=255, blank=True, null=True)
     data_post = models.DateTimeField(auto_now_add=True)
-    origem = models.CharField(max_length=255, blank=True, null=True, editable=False)
+    origem = models.CharField(max_length=255, default='LP-CONTROLADORIA')
 
     
-    def save(self, *args, **kwargs):
-        if not self.origem:
-            self.origem = 'LP-CONTROLADORIA'
-        super(LandingPage, self).save(*args, **kwargs)
-
     class Meta:
         managed = False
         db_table = 'landing_page'
